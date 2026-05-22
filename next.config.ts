@@ -1,8 +1,12 @@
 import type { NextConfig } from 'next'
 
+const isGitHubPages = process.env.GITHUB_ACTIONS === 'true'
+
 const nextConfig: NextConfig = {
-  output: 'export',
-  basePath: '/lux-venit',
+  ...(isGitHubPages && {
+    output: 'export',
+    basePath: '/lux-venit',
+  }),
   images: {
     formats: ['image/avif', 'image/webp'],
     unoptimized: true,
