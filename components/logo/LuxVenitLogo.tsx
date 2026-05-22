@@ -14,7 +14,7 @@ export default function LuxVenitLogo({ size = 80, className = '' }: LuxVenitLogo
       style={{ width: size, height: size, flexShrink: 0 }}
     >
       <Image
-        src="/lux-venit/logo.png"
+        src="/logo.png"
         alt="Lux Venit Choral Academy"
         width={size}
         height={size}
