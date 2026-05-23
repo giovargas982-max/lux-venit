@@ -2,4 +2,4 @@
 2:I[39756,["/lux-venit/_next/static/chunks/14exh0ebvdgwk.js","/lux-venit/_next/static/chunks/0aamkxjhsc.b..js","/lux-venit/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 3:I[37457,["/lux-venit/_next/static/chunks/14exh0ebvdgwk.js","/lux-venit/_next/static/chunks/0aamkxjhsc.b..js","/lux-venit/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
 4:[]
-0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"8mFavq3YvwFiYjXiihhKi"}
+0:{"rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"isPartial":false,"staleTime":300,"varyParams":"$W4","buildId":"Xlv3Tx9ERAt715Lot1q61"}
