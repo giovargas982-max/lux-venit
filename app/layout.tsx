@@ -45,7 +45,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="bg-primary-bg text-ivory antialiased" suppressHydrationWarning>
         <SmoothScrollProvider>
-          <div className="relative bg-primary-bg grain-overlay">
+          <div className="relative bg-primary-bg">
             <Navigation />
             <main>{children}</main>
             <Footer />
