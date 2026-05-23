@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Link from 'next/link'
+import Image from 'next/image'
 import PageHero from '@/components/ui/PageHero'
 import EnrollmentCTA from '@/components/sections/EnrollmentCTA'
 
@@ -16,18 +17,24 @@ const directors = [
     name: 'Richard Carr',
     title: 'Founder & Director',
     location: 'North Richland Hills',
+    photo: '/staff/richard-carr.jpg',
+    objectPosition: 'center 20%',
     bio: 'After growing up in San Antonio, Richard Carr graduated from Texas Christian University with a Bachelor\'s degree in all-level K-12 Vocal Music Education. He has completed over 20 hours toward a Vocal Performance Master\'s degree at the University of North Texas. With 33 years of experience in music education, 7 years performing with the Fort Worth Opera, and over 30 years teaching in Birdville ISD, Richard brings unparalleled expertise to every rehearsal. He and his wife Mary have been married over 28 years and have homeschooled their four children for 19 years.',
   },
   {
     name: 'Jonathan & Dana Cole',
     title: 'Midlothian Directors',
     location: 'Midlothian',
+    photo: '/staff/jonathan-dana-cole.jpg',
+    objectPosition: 'center 15%',
     bio: 'Jonathan was homeschooled K-12 before earning his degree in Music Education from UT Arlington, where he met Dana — who also holds a Music Education degree. Together they have taught choir, private voice, and piano lessons in the Arlington and Midlothian area for over 10 years. Jonathan serves as Youth Minister at Oak Crest Baptist Church in Midlothian, and they are joyfully homeschooling their own children.',
   },
   {
     name: 'Melanie Braucht',
     title: 'Plano / Wylie Director',
     location: 'Plano & Wylie',
+    photo: '/staff/melanie-braucht.jpg',
+    objectPosition: 'center 10%',
     bio: 'Melanie holds a Master\'s degree in Choral Music Education from Baylor University. She taught high school and middle school choir in Waco ISD, has taught private voice lessons for fifteen years, and currently serves at McMillen and Plano East Senior High School. A homeschool mom of two teenage girls, Melanie is thrilled to direct choirs again.',
   },
 ]
@@ -264,46 +271,55 @@ export default function AboutPage() {
               {directors.map((director) => (
                 <div
                   key={director.name}
-                  className="glass-card hover-glow rounded-sm reveal-item"
-                  style={{ padding: '2.5rem' }}
+                  className="glass-card hover-glow rounded-sm reveal-item overflow-hidden"
+                  style={{ padding: 0 }}
                 >
-                  {/* Avatar placeholder */}
-                  <div
-                    className="w-16 h-16 rounded-full mb-6 flex items-center justify-center"
-                    style={{ background: 'rgba(200,169,107,0.08)', border: '1px solid rgba(200,169,107,0.2)' }}
-                  >
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(200,169,107,0.6)" strokeWidth="1.2">
-                      <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                      <circle cx="12" cy="7" r="4" />
-                    </svg>
+                  {/* Photo */}
+                  <div className="relative w-full overflow-hidden" style={{ height: '240px' }}>
+                    <Image
+                      src={director.photo}
+                      alt={director.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover"
+                      style={{ objectPosition: director.objectPosition }}
+                    />
+                    {/* Subtle gradient fade into card body */}
+                    <div
+                      className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
+                      style={{ background: 'linear-gradient(to bottom, transparent, rgba(13,19,33,0.85))' }}
+                    />
                   </div>
 
-                  <h3
-                    className="font-serif text-ivory mb-1"
-                    style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', fontWeight: 400 }}
-                  >
-                    {director.name}
-                  </h3>
-                  <p className="font-serif italic mb-1" style={{ fontSize: '0.95rem', color: '#C8A96B', fontWeight: 300 }}>
-                    {director.title}
-                  </p>
-                  <p className="eyebrow mb-5" style={{ color: 'rgba(200,169,107,0.45)', fontSize: '0.55rem' }}>
-                    {director.location}
-                  </p>
+                  {/* Card body */}
+                  <div style={{ padding: '1.75rem 2rem 2rem' }}>
+                    <h3
+                      className="font-serif text-ivory mb-1"
+                      style={{ fontSize: 'clamp(1.2rem, 2.5vw, 1.5rem)', fontWeight: 400 }}
+                    >
+                      {director.name}
+                    </h3>
+                    <p className="font-serif italic mb-1" style={{ fontSize: '0.95rem', color: '#C8A96B', fontWeight: 300 }}>
+                      {director.title}
+                    </p>
+                    <p className="eyebrow mb-5" style={{ color: 'rgba(200,169,107,0.45)', fontSize: '0.55rem' }}>
+                      {director.location}
+                    </p>
 
-                  <div className="gold-line mb-5" />
+                    <div className="gold-line mb-5" />
 
-                  <p
-                    className="leading-loose"
-                    style={{
-                      fontFamily: 'var(--font-inter), system-ui',
-                      fontSize: '0.88rem',
-                      color: 'rgba(246,242,234,0.55)',
-                      fontWeight: 300,
-                    }}
-                  >
-                    {director.bio}
-                  </p>
+                    <p
+                      className="leading-loose"
+                      style={{
+                        fontFamily: 'var(--font-inter), system-ui',
+                        fontSize: '0.88rem',
+                        color: 'rgba(246,242,234,0.55)',
+                        fontWeight: 300,
+                      }}
+                    >
+                      {director.bio}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
